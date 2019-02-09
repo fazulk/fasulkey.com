@@ -1,0 +1,23 @@
+{
+  "name": "fasulkey",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node --experimental-modules ./bin/www",
+    "dev": "nodemon --experimental-modules ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "graphql": "^14.1.1",
+    "graphql-server-express": "^1.4.0",
+    "graphql-tools": "^4.0.4",
+    "mongodb": "^3.1.13",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
