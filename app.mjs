@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import express from'express';
 import path from'path'
 import cookieParser from'cookie-parser'
@@ -20,6 +22,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 
-const CONNECTION = 'mongodb+srv://imabot69:crosby1027@topaz-vacfu.mongodb.net/test?retryWrites=true'
+const connection = process.env.DB_CONNECTION
+
 
 export default app
