@@ -11,7 +11,7 @@ import path from 'path'
 import schema from './graphql'
 
 const MONGO_CONNECTION = process.env.DB_CONNECTION
-
+console.log(MONGO_CONNECTION)
 const FILENAME =
     typeof __filename !== `undefined`
         ? __filename
