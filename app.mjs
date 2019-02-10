@@ -42,6 +42,10 @@ app.use(cookieParser())
 app.use(express.static(path.join(DIRNAME, `public`)))
 app.use(cors())
 
+app.get(`/test`, (req, res) => {
+    res.json(MONGO_CONNECTION)
+})
+
 app.use(
     `/graphql`,
     cors(),
