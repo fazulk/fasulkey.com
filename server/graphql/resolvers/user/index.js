@@ -1,6 +1,5 @@
 // The User schema.
-import User from '../../../models/User'
-
+import User from '@models/users'
 
 export default {
     Query: {

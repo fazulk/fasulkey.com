@@ -1,5 +1,4 @@
-import merge from 'merge-graphql-schemas';
-const mergeTypes = merge.mergeTypes
+import { mergeTypes } from 'merge-graphql-schemas'
 
 import User from './user'
 

@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 // Create the User Schema.
-const UserSchema = new Schema({
+const users = new Schema({
     id: {
         type: String,
         required: true,
@@ -18,6 +18,6 @@ const UserSchema = new Schema({
     }
 })
 
-const User = mongoose.model(`User`, UserSchema)
+const model = mongoose.model(`users`, users)
 
-export default User
+export default model

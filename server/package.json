@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node --experimental-modules ./bin/www",
-    "dev": "nodemon --experimental-modules ./bin/www"
+    "start": "node --exec babel-node ./bin/www",
+    "dev": "nodemon --exec babel-node ./bin/www"
   },
   "dependencies": {
     "apollo-server": "^2.4.0",
@@ -17,11 +17,14 @@
     "express-graphql": "^0.7.1",
     "graphql": "^14.1.1",
     "merge-graphql-schemas": "^1.5.8",
+    "module-alias": "^2.1.0",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.11",
     "morgan": "~1.9.0"
   },
   "devDependencies": {
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-preset-env": "^1.7.0",
     "nodemon": "^1.18.10"
   }
 }
