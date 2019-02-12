@@ -1,4 +1,5 @@
-import { mergeResolvers } from 'merge-graphql-schemas'
+import merge from 'merge-graphql-schemas'
+const mergeResolvers = merge.mergeResolvers
 
 import User from './user'
 
