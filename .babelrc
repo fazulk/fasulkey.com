@@ -2,9 +2,9 @@
     "presets": ["env"],
     "plugins": [
       ["module-resolver", {
-        "root": ["./"],
+        "root": ["./src"],
         "alias": {
-          "@models": "./models",
+          "@models": "./src/models",
           "underscore": "lodash"
         }
       }]

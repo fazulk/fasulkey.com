@@ -1,5 +1,7 @@
+import "@babel/polyfill";
 import dotenv from 'dotenv'
 dotenv.config()
+import regeneratorRuntime from "regenerator-runtime";
 import express from 'express'
 import expressGraphQL from 'express-graphql'
 import mongoose from 'mongoose'

@@ -6,10 +6,11 @@
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/index.js",
-    "dev": "nodemon --exec babel-node ./bin/www"
+    "start": "npm run build && node ./build/bin/www.js",
+    "dev": "nodemon --exec babel-node ./src/bin/www"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
     "apollo-server": "^2.4.0",
     "apollo-server-express": "^2.4.0",
     "cookie-parser": "~1.4.3",
@@ -23,7 +24,8 @@
     "module-alias": "^2.1.0",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.11",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "regenerator-runtime": "^0.13.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
