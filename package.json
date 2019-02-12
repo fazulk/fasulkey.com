@@ -6,7 +6,7 @@
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
     "build": "npm run clean && npm run build-babel",
-    "start": "node ./build/bin/www.js",
+    "start": "npm run build && node ./build/bin/www.js",
     "dev": "nodemon --exec babel-node ./src/bin/www"
   },
   "dependencies": {
@@ -29,7 +29,6 @@
     "babel-cli": "^6.26.0"
   },
   "devDependencies": {
-    
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-preset-env": "^1.7.0",
     "nodemon": "^1.18.10"
