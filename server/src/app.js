@@ -2,14 +2,14 @@ import "@babel/polyfill";
 import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
-// import expressGraphQL from 'express-graphql'
+import expressGraphQL from 'express-graphql'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 import path from 'path'
-// import schema from './graphql'
+import schema from './graphql'
 
 const MONGO_CONNECTION = process.env.DB_CONNECTION
 
@@ -20,13 +20,13 @@ const URL = `http://localhost`
 const PORT = 3030
 
 // Connect to MongoDB with Mongoose.
-// mongoose
-//     .connect(MONGO_CONNECTION, {
-//         useCreateIndex: true,
-//         useNewUrlParser: true
-//     })
-//     .then(() => console.log(`MongoDB connected`))
-//     .catch(err => console.log(err))
+mongoose
+    .connect(MONGO_CONNECTION, {
+        useCreateIndex: true,
+        useNewUrlParser: true
+    })
+    .then(() => console.log(`MongoDB connected`))
+    .catch(err => console.log(err))
 
 app.use(logger(`dev`))
 app.use(express.json())
@@ -35,15 +35,15 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, `../public`)))
 app.use(cors())
 
-// app.use(
-//     `/graphql`,
-//     cors(),
-//     bodyParser.json(),
-//     expressGraphQL({
-//         schema,
-//         graphiql: true
-//     })
-// )
+app.use(
+    `/graphql`,
+    cors(),
+    bodyParser.json(),
+    expressGraphQL({
+        schema,
+        graphiql: true
+    })
+)
 
 app.listen(PORT, () => {
     console.log(`Listening on ${URL}:${PORT}`)
