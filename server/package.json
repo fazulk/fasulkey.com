@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf build && mkdir build",
-    "install" : "npm i",
     "build-babel": "babel -d ./build ./src -s",
     "build": "npm run build-babel",
     "start": "npm run build && node ./build/bin/www",
@@ -16,6 +15,7 @@
     "apollo-server-express": "^2.4.0",
     "babel-cli": "^6.26.0",
     "cookie-parser": "~1.4.3",
+    "copyfiles": "^2.1.0",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^6.2.0",
