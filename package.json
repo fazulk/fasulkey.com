@@ -7,7 +7,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd server && npm i && npm run build-babel",
+    "build": "cd server && npm run build-babel",
     "start": "npm run build && node server/build/bin/www"
   },
   "repository": {
