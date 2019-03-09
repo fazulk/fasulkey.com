@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/graphql/req.js"],"names":["module","exports","require","buildSchema"],"mappings":";;AAAAA,OAAOC,OAAP,GAAiBC,mBAAmBC,WAApC","file":"req.js","sourcesContent":["module.exports = require(`graphql`).buildSchema\n"]}

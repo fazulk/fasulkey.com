@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../src/graphql/resolvers/index.js"],"names":["resolvers","User"],"mappings":";;;;;;AAAA;;AAEA;;;;;;AAEA,IAAMA,YAAY,CAACC,cAAD,CAAlB;;kBAEe,yCAAeD,SAAf,C","file":"index.js","sourcesContent":["import { mergeResolvers } from 'merge-graphql-schemas'\n\nimport User from './user'\n\nconst resolvers = [User]\n\nexport default mergeResolvers(resolvers)\n"]}
