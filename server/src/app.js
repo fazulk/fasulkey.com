@@ -1,4 +1,4 @@
-import "@babel/polyfill";
+// import "@babel/polyfill";
 import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
@@ -34,13 +34,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(cors())
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'public')));
-    //
-    app.get('*', (req, res) => {
-        res.sendfile(path.join(__dirname = 'public/index.html'));
-    })
-}
+
+
 
 app.use(
     `/graphql`,
@@ -50,7 +45,11 @@ app.use(
         schema,
         graphiql: true
     })
-)
+    )
+app.use(express.static(path.join(__dirname, '../public')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '../public/index.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`Listening on ${URL}:${PORT}`)
