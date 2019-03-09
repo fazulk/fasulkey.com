@@ -17,7 +17,7 @@ const MONGO_CONNECTION = process.env.DB_CONNECTION
 
 const app = express()
 const URL = `http://localhost`
-const PORT = 3000
+const PORT = 3030
 
 // Connect to MongoDB with Mongoose.
 mongoose

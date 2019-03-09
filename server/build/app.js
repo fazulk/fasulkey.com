@@ -55,7 +55,7 @@ var MONGO_CONNECTION = process.env.DB_CONNECTION;
 
 var app = (0, _express2.default)();
 var URL = 'http://localhost';
-var PORT = 3001;
+var PORT = 3030;
 
 // Connect to MongoDB with Mongoose.
 _mongoose2.default.connect(MONGO_CONNECTION, {
