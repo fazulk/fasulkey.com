@@ -1,4 +1,4 @@
-// import "@babel/polyfill";
+import "@babel/polyfill";
 import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
