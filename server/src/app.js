@@ -1,19 +1,15 @@
-import "@babel/polyfill";
+import '@babel/polyfill/noConflict'
 import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
-import expressGraphQL from 'express-graphql'
 import mongoose from 'mongoose'
-import bodyParser from 'body-parser'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
+import apis from './routes'
 import path from 'path'
-import schema from './graphql'
 
 const MONGO_CONNECTION = process.env.DB_CONNECTION
-
-
 
 const app = express()
 const URL = `http://localhost`
@@ -34,22 +30,12 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(cors())
 
+app.use(apis)
 
-
-
-app.use(
-    `/graphql`,
-    cors(),
-    bodyParser.json(),
-    expressGraphQL({
-        schema,
-        graphiql: true
-    })
-    )
-app.use(express.static(path.join(__dirname, '../public')))
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '../public/index.html'));
-});
+app.use(express.static(path.join(__dirname, `../public`)))
+app.get(`*`, (req, res) => {
+    res.sendFile(path.join(__dirname + `../public/index.html`))
+})
 
 app.listen(PORT, () => {
     console.log(`Listening on ${URL}:${PORT}`)

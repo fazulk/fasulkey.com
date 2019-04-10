@@ -8,6 +8,12 @@
 		},
 		{
 			"path": "server"
+		},
+		{
+			"path": "ui-react"
+		},
+		{
+			"path": "C:\\WEBZ\\chad"
 		}
 	],
 	"settings": {}
