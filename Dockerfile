@@ -9,7 +9,9 @@ RUN yarn
 
 RUN yarn build
 
-WORKDIR /app/server
+WORKDIR /server
+
+COPY ./server /server
 
 RUN yarn
 
