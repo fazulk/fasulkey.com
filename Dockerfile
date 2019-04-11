@@ -9,6 +9,8 @@ RUN yarn
 
 RUN yarn build
 
+WORKDIR /vue_ui
+
 COPY ./vue_ui /vue_ui
 
 RUN yarn
