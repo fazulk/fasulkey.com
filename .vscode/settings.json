@@ -1,6 +1,7 @@
 {
     "files.exclude": {
         "**/server": true,
-        "**/ui": true
+        "**/vue_ui": true,
+        "**/react_ui": true
     }
 }

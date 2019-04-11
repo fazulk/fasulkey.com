@@ -1,6 +1,6 @@
 const router = require(`express`).Router()
 const subRoutes = app_require(`routes/require_all_routes`)(__dirname)
 
-router.use(`/`, subRoutes)
+router.use(`/api`, subRoutes)
 
 module.exports = router

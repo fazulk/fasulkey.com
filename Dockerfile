@@ -9,6 +9,12 @@ RUN yarn
 
 RUN yarn build
 
+COPY ./vue_ui /vue_ui
+
+RUN yarn
+
+RUN yarn build
+
 WORKDIR /server
 
 COPY ./server /server
