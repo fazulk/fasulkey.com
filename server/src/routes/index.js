@@ -1,9 +1,6 @@
-// const router = require(`express`).Router()
-import express from 'express'
-const router = express.Router()
-import subRoutes from '@routes/require_all_subs'
-;(async function() {
-    router.use(`/`, await subRoutes(__dirname))
-})()
+const router = require(`express`).Router()
+const subRoutes = require(`./require_all_routes`)(__dirname)
 
-export default router
+router.use(`/`, subRoutes)
+
+module.exports = router

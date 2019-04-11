@@ -1,7 +1,7 @@
-import { mergeResolvers } from 'merge-graphql-schemas'
+const { mergeResolvers } = require(`merge-graphql-schemas`)
 
-import User from './user'
+const User = require(`./user`)
 
 const resolvers = [User]
 
-export default mergeResolvers(resolvers)
+module.exports = mergeResolvers(resolvers)

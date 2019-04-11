@@ -1,10 +1,8 @@
-import express from 'express'
-import expressGraphQL from 'express-graphql'
-import bodyParser from 'body-parser'
-import cors from 'cors'
-import schema from '@graphql'
-
-const router = express.Router()
+const router = require(`express`).Router()
+const expressGraphQL = require(`express-graphql`)
+const bodyParser = require(`body-parser`)
+const cors = require(`cors`)
+const schema = app_require(`graphql`)
 
 router.use(
     `/graphql`,
@@ -16,4 +14,4 @@ router.use(
     })
 )
 
-export default router
+module.exports = router

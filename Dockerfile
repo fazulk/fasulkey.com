@@ -1,21 +1,16 @@
 FROM node:10
 
 # Create app directory
-WORKDIR /src/app
+WORKDIR /app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-#COPY package*.json ./
-COPY ./server ./ 
+COPY . ./app 
 
+WORKDIR /app/react_ui
+RUN yarn
+RUN yarn build
 
-RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
-
-# Bundle app source
-COPY . .
+WORKDIR /app/server
+RUN yarn
 
 EXPOSE 3030
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]

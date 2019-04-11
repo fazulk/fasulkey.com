@@ -1,8 +1,7 @@
-import express from 'express'
-const router = express.Router()
+const router = require(`express`).Router()
 
-router.get(`/resume`, (req, res) => {
+router.get(`/test`, (req, res) => {
     res.sendStatus(200)
 })
 
-export default router
+module.exports = router

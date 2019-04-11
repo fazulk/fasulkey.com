@@ -1,7 +1,7 @@
 // The User schema.
-import User from '@models/users'
+const User = app_require(`models/users`)
 
-export default {
+module.exports = {
     Query: {
         user: async (parent, { id }, context, info) => {
             return await User.findOne({ id })

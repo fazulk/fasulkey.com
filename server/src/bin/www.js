@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
-import app from '../app'
-import debug from 'debug'
-import http from 'http'
+const app = require(`../app`)
+const debug = require(`debug`)
+const http = require(`http`)
 
 debug(`fasulkey:server`)
 

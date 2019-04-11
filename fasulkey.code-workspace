@@ -4,16 +4,13 @@
 			"path": "."
 		},
 		{
-			"path": "ui"
-		},
-		{
 			"path": "server"
 		},
 		{
-			"path": "ui-react"
+			"path": "C:\\WEBZ\\chad"
 		},
 		{
-			"path": "C:\\WEBZ\\chad"
+			"path": "vue_ui"
 		}
 	],
 	"settings": {}

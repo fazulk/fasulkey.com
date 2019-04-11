@@ -1,18 +1,17 @@
-import '@babel/polyfill/noConflict'
-import dotenv from 'dotenv'
-dotenv.config()
-import express from 'express'
-import mongoose from 'mongoose'
-import cors from 'cors'
-import cookieParser from 'cookie-parser'
-import logger from 'morgan'
-import apis from './routes'
-import path from 'path'
+global.app_require = name => require(__dirname + `/` + name)
+require(`dotenv`).config()
+const express = require(`express`)
+const mongoose = require(`mongoose`)
+const cors = require(`cors`)
+const cookieParser = require(`cookie-parser`)
+const logger = require(`morgan`)
+const router = require(`./routes`)
+const path = require(`path`)
 
 const MONGO_CONNECTION = process.env.DB_CONNECTION
 
 const app = express()
-const URL = `http://localhost`
+const SERVER_URL = `http://localhost`
 const PORT = 3030
 
 // Connect to MongoDB with Mongoose.
@@ -30,15 +29,16 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(cors())
 
-app.use(apis)
+app.use(router)
 
 app.use(express.static(path.join(__dirname, `../public`)))
+
 app.get(`*`, (req, res) => {
-    res.sendFile(path.join(__dirname + `../public/index.html`))
+    res.sendFile(`index.html`, { root: path.join(__dirname, `../public`) })
 })
 
 app.listen(PORT, () => {
-    console.log(`Listening on ${URL}:${PORT}`)
+    console.log(`Listening on ${SERVER_URL}:${PORT}`)
 })
 
-export default app
+module.exports = app
