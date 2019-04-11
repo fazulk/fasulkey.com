@@ -33,9 +33,13 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(cors())
 
-app.use(`/react`, express.static(path.join(__dirname, `../../react_ui/build`)))
+// apis, etc
 app.use(router)
 
+// serve react UI
+app.use(`/react`, express.static(path.join(__dirname, `../../react_ui/build`)))
+
+// serve vue UI (default)
 app.use(
     serveStatic(path.join(__dirname, `../../vue_ui/dist`), {
         fallthrough: true
