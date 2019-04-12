@@ -8,22 +8,20 @@
         />
         <ul>
             <li>
-                <test-api />
+                <a href="https://github.com/fazulk">GitHub</a>
             </li>
             <li>
-                <a href="/react">React</a>
+                <router-link to="/resume">Resume</router-link>
             </li>
+            <!-- <li>
+                <a href="/react">React</a>
+            </li> -->
         </ul>
     </div>
 </template>
 
 <script>
-import TestApi from '@/components/TestApi.vue'
-
 export default {
-    name: `home`,
-    components: {
-        TestApi
-    }
+    name: `home`
 }
 </script>
