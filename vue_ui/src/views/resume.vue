@@ -30,11 +30,7 @@ export default {
     data() {
         return {
             name: `Jeff Fasulkey`,
-            address: [
-                `16195 Mt. Erebus Ct.`,
-                `Fountain Valley, CA 92708`,
-                `925.548.2996`
-            ],
+            address: [`Orange County, CA`],
             links: [
                 { action: `mailto:`, link: `jfasulkey@gmail.com` },
                 { action: `http://`, link: `github.com/fazulk` }
@@ -42,8 +38,7 @@ export default {
             detailed_content: [
                 {
                     heading: `Objective`,
-                    content: `To apply my dynamic skill-set in a workplace that thrives on providing the highest quality products and service while also generating an excellent user experience.
-`
+                    content: `To apply my dynamic skill-set in a workplace that thrives on providing the highest quality products and service while also generating an excellent user experience.`
                 }
             ]
         }
