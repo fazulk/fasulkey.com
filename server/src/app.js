@@ -8,6 +8,7 @@ const cors = require(`cors`)
 const cookieParser = require(`cookie-parser`)
 const logger = require(`morgan`)
 const router = require(`./routes`)
+const helmet = require(`helmet`)
 
 const MONGO_CONNECTION = process.env.DB_CONNECTION
 
@@ -24,6 +25,7 @@ mongoose
     .then(() => console.log(`MongoDB connected`))
     .catch(err => console.log(err))
 
+app.use(helmet())
 app.use(logger(`dev`))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
