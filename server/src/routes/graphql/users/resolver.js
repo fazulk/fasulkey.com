@@ -1,7 +1,6 @@
-// The User schema.
 const User = app_require(`models/users`)
 
-module.exports = {
+exports.resolver = {
     Query: {
         user: async (parent, { id }, context, info) => {
             return await User.findOne({ id })

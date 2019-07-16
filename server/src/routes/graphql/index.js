@@ -2,14 +2,21 @@ const router = require(`express`).Router()
 const expressGraphQL = require(`express-graphql`)
 const bodyParser = require(`body-parser`)
 const cors = require(`cors`)
-const schema = app_require(`graphql`)
+const { makeExecutableSchema } = require(`graphql-tools`)
+const glue = require(`schemaglue`)
+const { schema, resolver } = glue(`src/routes/graphql`)
+
+const merged = makeExecutableSchema({
+    typeDefs: schema,
+    resolvers: resolver
+})
 
 router.use(
-    `/graphql`,
+    `/api/graphql`,
     cors(),
     bodyParser.json(),
     expressGraphQL({
-        schema,
+        schema: merged,
         graphiql: true
     })
 )

@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "react_ui"
+		},
+		{
+			"path": "C:\\WEBZ\\chad\\dash_server\\src\\controllers\\graphql"
 		}
 	],
 	"settings": {		

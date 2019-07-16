@@ -1,0 +1,18 @@
+{
+    "restartable": "rs",
+    "colours": true,
+    "ignore": [
+        ".git",
+        "node_modules/**/node_modules"
+    ],
+    "watch": [
+        "*.*",
+        "../packages/*"
+    ],
+    "stdout": true,
+    "verbose": false,
+    "runOnChangeOnly": false,
+    "signal": "SIGUSR2",
+    "ext": "*",
+    "watchOptions": {}
+}
