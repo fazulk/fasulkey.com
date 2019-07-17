@@ -4,12 +4,12 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
-    "copy": "^0.3.2",
+    "copy": "^0.3.2",  
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8"
   },
-  "scripts": {    
+  "scripts": {
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -24,7 +24,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {    
+  "devDependencies": {
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.16.0",

@@ -11,45 +11,9 @@
 		},
 		{
 			"path": "react_ui"
-		},
-		{
-			"path": "C:\\WEBZ\\chad\\dash_server\\src\\controllers\\graphql"
 		}
 	],
 	"settings": {		
-		"npm.packageManager": "yarn",		
-		"eslint.provideLintTask": true,
-		"eslint.validate": [
-			{
-				"language": "css",
-				"autoFix": true
-			},
-			{
-				"language": "scss",
-				"autoFix": true
-			},
-			{
-				"language": "vue",
-				"autoFix": true
-			},
-			{
-				"language": "html",
-				"autoFix": true
-			},
-			{
-				"language": "json",
-				"autoFix": true
-			},
-			{
-				"language": "javascript",
-				"autoFix": true
-			},
-			{
-				"language": "typescript",
-				"autoFix": true
-			}
-		],
-		"eslint.alwaysShowStatus": true,
-		"eslint.packageManager": "yarn"
+		"npm.packageManager": "yarn"
 	}
 }
