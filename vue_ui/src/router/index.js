@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/home'
 import Resume from '@/views/resume'
+import Playground from '@/views/playground'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
             path: `/resume`,
             name: `resume`,
             component: Resume
+        },
+        {
+            path: `/playground`,
+            name: `playground`,
+            component: Playground
         }
     ]
 })

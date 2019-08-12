@@ -1,0 +1,14 @@
+
+query users {
+    users {
+        name
+        id
+    }
+}
+
+query userName($name: String!) {
+        userName(name: $name) {
+        name 
+        id
+    }
+}

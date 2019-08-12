@@ -19,7 +19,7 @@ server.listen().then(({ url }) => {
 })
 
 router.use(
-    `/api/graphql`,
+    `/graphql`,
     cors(),
     bodyParser.json(),
     expressGraphQL({

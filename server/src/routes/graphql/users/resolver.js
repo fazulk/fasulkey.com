@@ -2,11 +2,12 @@ const User = app_require(`models/users`)
 
 exports.resolver = {
     Query: {
-        user: async (parent, { id }, context, info) => {
-            return await User.findOne({ id })
-        },
-        user_name: async (parent, { name }, context, info) => {
-            return await User.findOne({ name })
+        // user: async (parent, { id }, context, info) => {
+        //     return await User.findOne({ id })
+        // },
+        userName: async (parent, { name, id }, context, info) => {
+            if (name) return await User.findOne({ name })
+            if (id) return await User.findOne({ id })
         },
         users: async () => {
             return await User.find({})
