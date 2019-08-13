@@ -2,12 +2,14 @@
 type User {
     id: String!
     name: String!
-    email: String!
+    email: String!    
 }
+
 type Query {
     users: [User]
     userName(name: String, id: String): User
 }
+
 type Mutation {
     addUser(id: String!, name: String!, email: String): User
     editUser(id: String, name: String, email: String): User

@@ -1,10 +1,9 @@
 'use strict'
+
 const glue = require(`schemaglue`)
-const { schema, resolver } = glue(`src/routes/graphql`)
-const { ApolloServer } = require(`apollo-server`)
+const { schema, resolver } = glue(`src/graphql`)
+const { ApolloServer, gql } = require(`apollo-server-koa`)
 
 const server = new ApolloServer({ typeDefs: schema, resolvers: resolver })
 
-server.listen().then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`)
-})
+module.exports = server

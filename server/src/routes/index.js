@@ -1,5 +1,8 @@
 const Router = require(`koa-router`)
 const router = new Router()
+
+router.get(`/`, ctx => (ctx.status = 200))
+
 router.get(`/todos`, ctx => {
     ctx.status = 200
     ctx.body = [
@@ -21,8 +24,8 @@ router.get(`/todos`, ctx => {
     ]
 })
 
-router.post(`/tests`, ctx => {
-    console.log(ctx.request.body)
+router.get(`/tests`, ctx => {
+    console.log(`ctx`, ctx.request.href)
     ctx.status = 200
     ctx.body = `you did it!`
 })

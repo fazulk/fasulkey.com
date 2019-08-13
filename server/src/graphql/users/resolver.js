@@ -1,4 +1,4 @@
-const User = app_require(`models/users`)
+const User = require(`../../models/users`)
 
 exports.resolver = {
     Query: {

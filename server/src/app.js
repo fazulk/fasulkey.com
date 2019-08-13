@@ -1,54 +1,55 @@
 'use strict'
-
-const fs = require(`fs`)
+require(`dotenv`).config()
 const Koa = require(`koa`)
-const app = new Koa()
 const morgan = require(`koa-morgan`)
-const bodyParser = require(`koa-bodyparser`)
+const koaBody = require(`koa-body`)
+const mongoose = require(`mongoose`)
+const helmet = require(`koa-helmet`)
 const router = require(`./routes`)
-const accessLogStream = fs.createWriteStream(__dirname + `/access.log`, {
-    flags: `a`
+const graphql = require(`./graphql`)
+const app = new Koa()
+const MONGO_CONNECTION = process.env.DB_CONNECTION
+
+// Connect to MongoDB through Mongoose.
+mongoose
+    .connect(MONGO_CONNECTION, {
+        useCreateIndex: true,
+        useNewUrlParser: true
+    })
+    .then(() => console.log(`MongoDB connected`))
+    .catch(err => {
+        console.error(`Error connecting to MongoDB`, err)
+        process.exit(1)
+    })
+
+// Error Handling
+app.use(async (ctx, next) => {
+    try {
+        await next()
+    } catch (err) {
+        ctx.status = 400
+        ctx.body = `UH OHHHH: ${err.message}`
+        console.log(`NO WAY JOSE`, err.message)
+    }
 })
 
-const responseTime = async (ctx, next) => {
+// Response Time
+app.use(async (ctx, next) => {
     console.log(`started tracking reponse time`)
     const started = Date.now()
     await next()
     const ellapsed = Date.now() - started + `ms`
     console.log(`Response time is:`, ellapsed)
     ctx.set(`X-ResponseTime`, ellapsed)
-}
+})
 
-const errorHandler = async (ctx, next) => {
-    try {
-        await next()
-    } catch (err) {
-        ctx.status = 400
-        ctx.body = `UH UOHHHH: ${err.message}`
-        console.log(`NO WAY JOSE`, err.message)
-    }
-}
-
-app.use(errorHandler)
-app.use(bodyParser())
-app.use(morgan(`combined`, { stream: accessLogStream }))
-app.use(responseTime)
+app.use(morgan(`combined`))
+app.use(helmet())
+app.use(koaBody())
+graphql.applyMiddleware({ app })
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-// Simple Promise delay
-function delay(ms) {
-    return new Promise(resolve => {
-        setTimeout(resolve, ms)
-    })
-}
-
-app.use(async (ctx, next) => {
-    ctx.status = 200
-    console.log(`setting status`)
-    await next()
-})
-
-app.listen(3002, () =>
-    console.log(`Koa app listening on http://localhost:3002`)
+app.listen(3030, () =>
+    console.log(`🚀  App listening on http://localhost:3030`)
 )
