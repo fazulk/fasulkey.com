@@ -1,9 +1,8 @@
 FROM node:10
 
-# Create app directory
-WORKDIR /server
+WORKDIR /app
 
-COPY ./server /server
+COPY ./server /app
 
 RUN yarn
 
