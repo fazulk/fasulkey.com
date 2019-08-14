@@ -50,6 +50,6 @@ graphql.applyMiddleware({ app })
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-app.listen(3030, () =>
+app.listen(process.env.PORT || 3030, () =>
     console.log(`🚀  App listening on http://localhost:3030`)
 )
