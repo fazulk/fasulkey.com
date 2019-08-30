@@ -9,7 +9,10 @@ import axios from 'axios'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {
-    baseURL: `/api`
+    baseURL:
+        process.env.NODE_ENV === `development`
+            ? `/api`
+            : `http://localhost:3000`
     // timeout: 60 * 1000, // Timeout
     // withCredentials: true, // Check cross-site Access-Control
 }

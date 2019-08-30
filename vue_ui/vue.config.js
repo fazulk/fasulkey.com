@@ -9,7 +9,7 @@ module.exports = {
         open: true,
         proxy: {
             '/api': {
-                target: `http://0.0.0.0:3030`,
+                target: `http://0.0.0.0:3000`,
                 secure: false
             }
         }

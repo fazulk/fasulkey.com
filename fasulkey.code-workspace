@@ -1,16 +1,19 @@
 {
 	"folders": [
 		{
-			"path": "."
+			"path": "server"
 		},
 		{
-			"path": "server"
+			"path": "J:\\webz\\c"
+		},
+		{
+			"path": "."
 		},
 		{
 			"path": "vue_ui"
 		},
 		{
-			"path": "react_ui"
+			"path": "J:\\webz\\JeffFasulkey-Challenge\\server"
 		}
 	],
 	"settings": {		

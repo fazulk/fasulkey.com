@@ -1,0 +1,22 @@
+
+#  Run `docker-compose build` to build the images
+#  Run `docker-compose up` to run the containers
+#  Run `docker-compose down` to remove the containers
+version: "3"
+services:
+  server:       
+    build: ./server      
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"           
+    environment:       
+      TEST_CASE: imasillyvariable
+  client:         
+    build: ./vue_ui     
+    expose:
+      - 8080    
+    ports:
+      - "8080:8080"    
+    environment:
+      - API_URL=http://localhost:3000/
