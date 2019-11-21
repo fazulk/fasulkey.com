@@ -1,24 +1,26 @@
 const mongoose = require(`mongoose`)
-
 const Schema = mongoose.Schema
 
-// Create the User Schema.
-const users = new Schema(
+// Create the User Directory
+const customers = new Schema(
     {
-        id: {
-            type: String,
-            required: true,
-            unique: true
-        },
-        name: {
+        firstName: {
             type: String,
             required: true
         },
-        email: {
-            type: String
-        }
+        lastName: {
+            type: String,
+            required: true,
+            index: true
+        },
+        jobTitle: String,
+        gender: String,
+        birthDay: Date,
+        country: String,
+        city: String
     },
     { timestamps: true }
 )
 
-module.exports = mongoose.model(`users`, users)
+// adding third parameter de-pluralizes default mongoose pattern
+module.exports = mongoose.model(`customers`, customers)

@@ -1,16 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "."
-		},
-		{
 			"path": "server"
 		},
 		{
-			"path": "vue_ui"
+			"path": "."
 		},
 		{
-			"path": "react_ui"
+			"path": "vue_ui"
 		}
 	],
 	"settings": {		
