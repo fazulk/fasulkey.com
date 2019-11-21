@@ -5,7 +5,7 @@ const morgan = require(`koa-morgan`)
 const koaBody = require(`koa-body`)
 const mongoose = require(`mongoose`)
 const helmet = require(`koa-helmet`)
-const router = require(`./router`)
+const Router = require(`./router`)
 const app = new Koa()
 const MONGO_CONNECTION = process.env.DB_CONNECTION
 
@@ -36,10 +36,13 @@ app.use(async (ctx, next) => {
 app.use(morgan(`combined`))
 app.use(helmet())
 app.use(koaBody())
-app.use(router.middleware())
 
-app.listen(process.env.PORT || 3005, () =>
+//Add Router
+app.use(Router.Public.middleware())
+app.use(Router.Private.middleware())
+
+app.listen(process.env.PORT || 3000, () =>
     console.log(
-        `🚀  App listening on http://localhost:${process.env.PORT || 3005}`
+        `🚀  App listening on http://localhost:${process.env.PORT || 3000}`
     )
 )
