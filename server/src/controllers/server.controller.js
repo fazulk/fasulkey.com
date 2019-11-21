@@ -4,9 +4,9 @@ class Server {
         ctx.body = `API UP ${new Date()}`
     }
 
-    static ready(ctx, next) {
+    static privateCheck(ctx, next) {
         ctx.status = 200
-        ctx.body = `API UP ${new Date()}`
+        ctx.body = `API UP, and IM PRIVATE ${new Date()}`
     }
 
     static redirect(ctx, next) {
