@@ -62,13 +62,21 @@
     </div>
 </template>
 
+<style>
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+</style>
+
 <script>
 export default {
     name: `Resume`,
     data() {
         return {
             name: `Jeff Fasulkey`,
-            address: [`Orange County, CA`],
+            address: [`California`],
             links: [
                 { action: `mailto:`, link: `jfasulkey@gmail.com` },
                 { action: `http://`, link: `github.com/fazulk` }
@@ -93,14 +101,14 @@ export default {
             ],
             languages: {
                 bulk: [
-                    `Javascript, ES6+, Node.Js, Express, MongoDB, Mongoose, Yarn, NPM`,
+                    `Javascript, ES6+, Node.js, MongoDB, Oracle, SQL, Yarn, NPM`,
+                    `Google Cloud Project, Cloud Functions, SSR, Docker, Kubernetes`,
+                    `Effeciant, scalable application architecture & design patterns`,
                     `Vue.js, HTML5,	CSS, SASS, Webpack, Babel, JSON, Application Security`,
-                    `Asynchronous Programming, RESTful APIs, Templating Engines `,
-                    `Google App Engine, Server Side Rendering	`,
                     `Excel, Photoshop, Illustrator, Dreamweaver, Flash`,
                     `OSX, Windows 7, 10`
                 ],
-                minimal: `Minimal work with: Python, React, GraphQL, Docker, and more to come!
+                minimal: `Minimal work with: Python, React, GraphQL, and more to come!
 `
             },
             objective: `To apply my dynamic skill-set in a workplace that thrives on providing the highest quality products and service while also generating an excellent user experience.`,
@@ -109,7 +117,7 @@ export default {
                     details: {
                         name: `Getac`,
                         date_location: `Irvine CA February 2017 - Present`,
-                        title: `Full Stack Developer`
+                        title: `Software Developer / IT Engineer`
                     },
                     bullets: [
                         `Responsible for creating a scalable user application with CRUD capabilities to be used for data processing and granular data analysis.`,
@@ -135,22 +143,20 @@ export default {
                         title: `Assistant General Manager`
                     },
                     bullets: [
-                        `Analyze and read through Profit and Loss reports for administrative errors as well as predict business trends.`,
-                        `Improved productivity and eliminated redundancies by instituting new technical configurations and ways of conducting day to day operations.`,
-                        `Lead & train management teams in San Francisco, Hollywood, and Torrance on reducing COGS, scheduling, and inventory planning.`,
-                        `Streamline our database of employee information and payroll data using automation with excel.`,
-                        `Mentored unit managers, shift supervisors, and general staff to promote growth within.`,
-                        `Created sales forecasts according to periodic trends and flow of business.`,
-                        `Demonstrated conflict management which may include any customer disputes or employee conflicts.`,
                         `Program schedules for 55+ employees to support between 20 -70 private events each week, while also meeting base business needs.`,
-                        `Verify customer satisfaction is consistently high by proactively following up with clients and personally responding to any negative feedback. `
+                        `Improved productivity and eliminated redundancies by instituting new technical configurations and ways of conducting day to day operations.`,
+                        `Analyze and forecast P/L statements for current and future business/industry trends.`,
+                        `Lead & trained mgmt teams across CA on reducing COGS, scheduling, and inventory planning.`,
+                        `Streamlined our database of employee payroll utlizing excel and vbscript.`,
+                        `Mentored unit managers, shift supervisors, and general staff to promote growth within.`,
+                        `Demonstrated conflict management which may include any customer disputes or employee conflicts.`
                     ]
                 },
                 {
                     details: {
                         name: `Inventures`,
                         date_location: `San Ramon, CA 2000 - 2002`,
-                        title: `Full Stack Developer/Designer`
+                        title: `Full Stack Developer / Designer`
                     },
                     bullets: [
                         `Develop and design fully structured dynamic web sites for new clients and existing clients, while utilizing ColdFusion, HTML, CSS, & Flash. `,
@@ -166,7 +172,7 @@ export default {
                     details: {
                         name: `Interquest Communications/ Darwin Networks`,
                         date_location: `Walnut Creek, CA February 2000 - August 2000`,
-                        title: `Front End Developer/Designer`
+                        title: `Front End Developer / Designer`
                     },
                     bullets: [
                         `Developed fully structured dynamic sites for various hospitality and multi-dwelling units.`,
