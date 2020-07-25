@@ -16,8 +16,8 @@ export default new Router({
             beforeEnter: (to, from, next) => {
                 if (sessionStorage.getItem(`redirect`) !== null) {
                     const redirect = sessionStorage.redirect
-                    delete sessionStorage.redirect
                     next(redirect)
+                    delete sessionStorage.redirect
                 } else {
                     next()
                 }
