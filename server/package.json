@@ -7,6 +7,7 @@
     "main": "src/app.js",
     "type": "module",
     "scripts": {
+        "start": "node src/app.js",
         "dev": "nodemon --inspect=9889 dev.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
