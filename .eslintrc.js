@@ -15,15 +15,10 @@ module.exports = {
     plugins: [`prettier`],
 
     extends: [
-        `plugin:jest/recommended`,
         `standard`,
         `prettier`,
         `prettier/standard`
     ],
-
-    globals: {
-        gssId: `writeable`
-    },
 
     rules: {
         'prettier/prettier': [`warn`, prettierConfig],
@@ -34,7 +29,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: [`api/**/*`],
+            files: [`server/**/*`],
             parserOptions: {
                 parser: `babel-eslint`,
                 sourceType: `module`,
@@ -51,7 +46,7 @@ module.exports = {
             parserOptions: {
                 parser: `babel-eslint`,
                 sourceType: `module`,
-                ecmaVersion: 2017
+                ecmaVersion: 2020
             },
 
             extends: [
@@ -86,10 +81,7 @@ module.exports = {
                 'vue/component-name-in-template-casing': [
                     `error`,
                     `kebab-case`,
-                    {
-                        ignores: [`/^custom-/`],
-                        registeredComponentsOnly: false
-                    }
+                    { ignores: [`/^custom-/`], registeredComponentsOnly: false }
                 ],
 
                 'vue/v-slot-style': [
@@ -101,6 +93,28 @@ module.exports = {
                     }
                 ],
                 'vue/valid-v-slot': `error`
+            }
+        },
+        {
+            files: [`**/*.spec.js`, `**/*.unit.js`],
+            plugins: [`jest`],
+            extends: [`plugin:jest/recommended`],
+            env: {
+                jest: true
+            },
+            globals: {
+                mount: false,
+                shallowMount: false,
+                shallowMountView: false,
+                createComponentMocks: false,
+                createModuleStore: false
+            }
+        },
+        {
+            files: [`**/*.test.js`, `**/*.e2e.js`],
+            plugins: [`cypress`],
+            env: {
+                'cypress/globals': true
             }
         }
     ]
