@@ -5,14 +5,19 @@
         </div>
         <div class="contact">
             <ul>
-                <li v-for="i in address" :key="i">{{ i }}</li>
-                <li v-for="i in links" :key="i.link">
-                    <a :href="i.action + i.link">{{ i.link }}</a>
+                <li>{{ resumeBasicInfo.location }}</li>
+                <li>
+                    <a :href="resumeBasicInfo.email">{{
+                        resumeBasicInfo.email
+                    }}</a>
+                </li>
+                <li>
+                    <a :href="resumeBasicInfo.url">{{ slimUrl }}</a>
                 </li>
             </ul>
         </div>
         <div class="sub-heading">Objective:</div>
-        <div class="content">{{ objective }}</div>
+        <div class="content">{{ resumeBasicInfo.objective }}</div>
         <div class="sub-heading">Experience:</div>
         <div v-for="j in experience" :key="j.name" class="content">
             <span class="job-title stronger">{{ j.details.name }}</span
@@ -71,10 +76,27 @@ body {
 </style>
 
 <script>
+import gql from 'graphql-tag'
 export default {
     name: `Resume`,
+    apollo: {
+        resumeBasicInfo: {
+            query: gql`
+                query {
+                    resumeHistory(resumeType: "basicInfo") {
+                        location
+                        objective
+                        email
+                        url
+                    }
+                }
+            `,
+            update: data => data.resumeHistory[0] || []
+        }
+    },
     data() {
         return {
+            resumeBasicInfo: {},
             name: `Jeff Fasulkey`,
             address: [`California`],
             links: [
@@ -181,6 +203,11 @@ export default {
                     ]
                 }
             ]
+        }
+    },
+    computed: {
+        slimUrl() {
+            return (`` + this.resumeBasicInfo.url).replace(`https://`, ``)
         }
     }
 }

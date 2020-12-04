@@ -4,11 +4,11 @@ export default function({ fasulkeyDb }) {
         getBasicInfo
     })
 
-    async function getHistory() {
+    async function getHistory({ resumeType }) {
         const db = await fasulkeyDb()
         return db
             .collection(`resume`)
-            .find({ type: { $ne: `basicInfo` } })
+            .find({ type: resumeType })
             .toArray()
     }
 

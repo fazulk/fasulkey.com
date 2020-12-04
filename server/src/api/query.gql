@@ -1,4 +1,3 @@
 type Query {
-    resumeHistory: [History]
-    resumeBasicInfo: BasicInfo
+    resumeHistory(resumeType: String!): [History]
 }

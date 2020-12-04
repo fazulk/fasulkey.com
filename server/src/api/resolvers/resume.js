@@ -1,10 +1,9 @@
 export const resume = {
     Query: {
-        resumeHistory: async (root, args, { db }) => {
-            return await db.resumeCol.getHistory()
-        },
-        resumeBasicInfo: async (root, args, { db }) => {
-            return await db.resumeCol.getBasicInfo()
+        resumeHistory: async (root, { resumeType }, { db }) => {
+            return await db.resumeCol.getHistory({
+                resumeType
+            })
         }
     }
     // TODO create option to modify resume

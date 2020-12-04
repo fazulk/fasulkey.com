@@ -8,10 +8,6 @@ type History {
     startDate: Date
     endDate: Date
     bullets: [String]
-}
-
-type BasicInfo {
-    location: String
     email: String
     url: String
     objective: String
