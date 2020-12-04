@@ -1,0 +1,18 @@
+scalar Date
+
+type History {
+    type: String
+    title: String
+    subTitle: String
+    location: String
+    startDate: Date
+    endDate: Date
+    bullets: [String]
+}
+
+type BasicInfo {
+    location: String
+    email: String
+    url: String
+    objective: String
+}

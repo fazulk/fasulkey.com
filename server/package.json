@@ -1,0 +1,26 @@
+{
+    "name": "fasulkey.com-server",
+    "version": "1.0.0",
+    "description": "fasulkey.com api",
+    "license": "ISC",
+    "author": "Jeff Fasulkey",
+    "main": "src/app.js",
+    "type": "module",
+    "scripts": {
+        "dev": "nodemon --inspect=9889 dev.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "apollo-server-koa": "^2.19.0",
+        "dotenv-flow": "^3.2.0",
+        "graphql-tools": "^7.0.1",
+        "koa": "^2.13.0",
+        "mongodb": "^3.6.3"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.6"
+    },
+    "nodemonConfig": {
+        "ext": "js,json,ts,txt,gql"
+    }
+}
