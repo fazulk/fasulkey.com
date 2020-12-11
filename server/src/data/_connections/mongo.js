@@ -1,20 +1,17 @@
 import mongodb from 'mongodb'
-// import fs from 'fs'
+
 const MongoClient = mongodb.MongoClient
-const url = `mongodb://127.0.0.1:27017`
+console.log(process.env.NODE_ENV)
+const url =
+    process.env.NODE_ENV === `development`
+        ? `mongodb://localhost:27017/fasulkey`
+        : `mongodb+srv://keyb0ard:${process.env.MONGO_PW}@topazcluster.p7xiq.mongodb.net/fasulkey?retryWrites=true&w=majority`
 
 const options = {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
 }
-
-// if (process.env.NODE_ENV === `production`) {
-//     const crt = fs.readFileSync(`/var/run/data/user.pem`)
-
-//     options.sslCert = crt
-//     options.sslKey = crt
-// }
 
 const client = new MongoClient(url, options)
 

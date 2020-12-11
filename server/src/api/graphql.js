@@ -2,7 +2,7 @@ import fs from 'fs'
 import gt from 'graphql-tools'
 import ask from 'apollo-server-koa'
 import { resumeCol } from '../data/index.js'
-import { resume } from './resolvers/resume.js'
+import { resumeRes } from './resolvers/resume.js'
 
 const { makeExecutableSchema } = gt
 const { ApolloServer } = ask
@@ -15,7 +15,7 @@ export default app => {
     const server = new ApolloServer({
         schema: makeExecutableSchema({
             typeDefs: [types.toString(), query.toString(), mutation.toString()],
-            resolvers: [resume]
+            resolvers: [resumeRes]
         }),
         context: ctx => {
             return {
