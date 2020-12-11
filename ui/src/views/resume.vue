@@ -1,39 +1,44 @@
 <template>
     <div>
         <div class="heading">
-            {{ name }}
+            {{ resume.name }}
         </div>
         <div class="contact">
             <ul>
-                <li>{{ resumeBasicInfo.location }}</li>
+                <li>{{ resume.location }}</li
+                ><br />
                 <li>
-                    <a :href="resumeBasicInfo.email">{{
-                        resumeBasicInfo.email
-                    }}</a>
+                    <a :href="'mailto:' + resume.email">{{ resume.email }}</a>
                 </li>
                 <li>
-                    <a :href="resumeBasicInfo.url">{{ slimUrl }}</a>
+                    <a :href="resume.url">{{ slimUrl({ url: resume.url }) }}</a
+                    ><br />
+
+                    <a :href="resume.github">{{
+                        slimUrl({ url: resume.github })
+                    }}</a>
                 </li>
             </ul>
         </div>
         <div class="sub-heading">Objective:</div>
-        <div class="content">{{ resumeBasicInfo.objective }}</div>
+        <div class="content">{{ resume.objective }}</div>
         <div class="sub-heading">Experience:</div>
-        <div v-for="j in experience" :key="j.name" class="content">
-            <span class="job-title stronger">{{ j.details.name }}</span
+        <div v-for="(e, i) in resume.experience" :key="i" class="content">
+            <span class="job-title stronger">{{ e.title }}</span
             ><br />
-            {{ j.details.date_location }}<br />
-            <span class="stronger">{{ j.details.title }}</span>
+            {{ e.location }} {{ e.startDate }} -
+            {{ e.endDate ? `${e.endDate}` : 'Present' }} <br />
+            <span class="stronger">{{ e.subTitle }}</span>
             <ul>
-                <li v-for="b in j.bullets" :key="b">
-                    {{ b }}
+                <li v-for="(p, pi) in e.points" :key="pi">
+                    {{ p }}
                 </li>
             </ul>
         </div>
         <div class="sub-heading">Languages, OS, and Programs:</div>
         <div class="languages">
             <ul>
-                <li v-for="l in languages.bulk" :key="l">
+                <li v-for="(l, i) in resume.languages" :key="i">
                     {{ l }}
                 </li>
             </ul>
@@ -41,25 +46,30 @@
         <div class="sub-heading">Education:</div>
         <div class="languages">
             <ul>
-                <li v-for="e in education" :key="e.school" class="top-padding">
-                    <span class="job-title stronger">{{ e.school }}</span
+                <li
+                    v-for="(e, i) in resume.education"
+                    :key="i"
+                    class="top-padding"
+                >
+                    <span class="job-title stronger">{{ e.title }}</span
                     ><br />
                     {{ e.location }}<br />
-                    <span class="stronger">{{ e.degree }}</span>
+                    <span class="stronger">{{ e.subTitle }}</span>
                 </li>
             </ul>
         </div>
+
         <div class="sub-heading">Affiliations:</div>
         <div class="languages">
             <ul>
                 <li
-                    v-for="e in affiliations"
-                    :key="e.school"
+                    v-for="(a, i) in resume.affiliations"
+                    :key="i"
                     class="top-padding"
                 >
-                    <span class="job-title stronger">{{ e.school }}</span
+                    <span class="job-title stronger">{{ a.title }}</span
                     ><br />
-                    <span class="stronger">{{ e.degree }}</span>
+                    <span class="stronger">{{ a.subTitle }}</span>
                 </li>
             </ul>
         </div>
@@ -80,134 +90,47 @@ import gql from 'graphql-tag'
 export default {
     name: `Resume`,
     apollo: {
-        resumeBasicInfo: {
+        resume: {
             query: gql`
-                query {
-                    resumeHistory(resumeType: "basicInfo") {
+                query Resume {
+                    resume {
+                        name
+                        languages
+                        github
                         location
                         objective
                         email
                         url
+                        affiliations {
+                            title
+                            subTitle
+                        }
+                        experience {
+                            title
+                            subTitle
+                            location
+                            startDate
+                            points
+                            endDate
+                        }
+                        education {
+                            title
+                            subTitle
+                            location
+                        }
                     }
                 }
-            `,
-            update: data => data.resumeHistory[0] || []
+            `
         }
     },
     data() {
         return {
-            resumeBasicInfo: {},
-            name: `Jeff Fasulkey`,
-            address: [`California`],
-            links: [
-                { action: `mailto:`, link: `jfasulkey@gmail.com` },
-                { action: `http://`, link: `github.com/fazulk` }
-            ],
-            affiliations: [
-                {
-                    school: `Boy Scouts of America`,
-                    degree: `Eagle Scout`
-                }
-            ],
-            education: [
-                {
-                    school: `Diablo Valley College`,
-                    location: `Pleasant Hill, CA`,
-                    degree: `General Studies`
-                },
-                {
-                    school: `Dublin High School`,
-                    location: `Dublin, CA`,
-                    degree: `General Ed.`
-                }
-            ],
-            languages: {
-                bulk: [
-                    `Javascript, ES6+, Node.js, MongoDB, Oracle, SQL, Yarn, NPM`,
-                    `Google Cloud Project, Cloud Functions, SSR, Docker, Kubernetes`,
-                    `Effeciant, scalable application architecture & design patterns`,
-                    `Vue.js, HTML5,	CSS, SASS, Webpack, Babel, JSON, Application Security`,
-                    `Excel, Photoshop, Illustrator, Dreamweaver, Flash`,
-                    `OSX, Windows 7, 10`
-                ],
-                minimal: `Minimal work with: Python, React, GraphQL, and more to come!
-`
-            },
-            objective: `To apply my dynamic skill-set in a workplace that thrives on providing the highest quality products and service while also generating an excellent user experience.`,
-            experience: [
-                {
-                    details: {
-                        name: `Getac`,
-                        date_location: `Irvine CA February 2017 - Present`,
-                        title: `Software Developer / IT Engineer`
-                    },
-                    bullets: [
-                        `Responsible for creating a scalable user application with CRUD capabilities to be used for data processing and granular data analysis.`,
-                        `Establish guidelines and schema for scalable database architecture using MongoDB.`,
-                        `Design and develop server architecture for NODE.js server which includes ability to process REST API calls as well as serving UI (SPA application and SSR).`,
-                        `Establish and implement local security authorization and authentication strategy utilizing JWT.`,
-                        `Develop complex Mongo Aggregation Pipelines to analyze thousands of data points as well as basic database queries.`,
-                        `Design and developed frontend UI using Vue.js to create a interactive fluid user experience.`,
-                        `Deploy all production and dev environments using Gcloud and Docker`,
-                        `Established code patterns within the Server and UI architecture.`,
-                        `Utilize CSS3 and SASS for styling.`,
-                        `Worked with templating engines (ejs, pug) to display content dynamically.`,
-                        `Utilize git & github  to maintain code repositories and their respective versions.`,
-                        `Maintain code readability with comments and readmes.`,
-                        `Communicate with internal management to establish clear goals and expectations.`,
-                        `Responsible for setting and hitting all expected time deadlines while taking into account any unforeseen time sinks.`
-                    ]
-                },
-                {
-                    details: {
-                        name: `Lucky Strike Entertainment`,
-                        date_location: `Orange CA 2003 - February 2017`,
-                        title: `Assistant General Manager`
-                    },
-                    bullets: [
-                        `Program schedules for 55+ employees to support between 20 -70 private events each week, while also meeting base business needs.`,
-                        `Improved productivity and eliminated redundancies by instituting new technical configurations and ways of conducting day to day operations.`,
-                        `Analyze and forecast P/L statements for current and future business/industry trends.`,
-                        `Lead & trained mgmt teams across CA on reducing COGS, scheduling, and inventory planning.`,
-                        `Streamlined our database of employee payroll utlizing excel and vbscript.`,
-                        `Mentored unit managers, shift supervisors, and general staff to promote growth within.`,
-                        `Demonstrated conflict management which may include any customer disputes or employee conflicts.`
-                    ]
-                },
-                {
-                    details: {
-                        name: `Inventures`,
-                        date_location: `San Ramon, CA 2000 - 2002`,
-                        title: `Full Stack Developer / Designer`
-                    },
-                    bullets: [
-                        `Develop and design fully structured dynamic web sites for new clients and existing clients, while utilizing ColdFusion, HTML, CSS, & Flash. `,
-                        `Designed and implemented backend data structure using mysql to integrate with cold fusion.`,
-                        `Designed, Prototyped, and Developed all UI and UX for all client sites. `,
-                        `Responsible for debugging and following through to ensure user experience was fluid.`,
-                        `Responsible for designing and creating full identity packages for several clients. This would include Logos, Business cards, Flyers, etc.`,
-                        `Establish and develop CSS guidelines tailor made to specific design concepts. `,
-                        `Stay up to date on new technologies and security measures.`
-                    ]
-                },
-                {
-                    details: {
-                        name: `Interquest Communications/ Darwin Networks`,
-                        date_location: `Walnut Creek, CA February 2000 - August 2000`,
-                        title: `Front End Developer / Designer`
-                    },
-                    bullets: [
-                        `Developed fully structured dynamic sites for various hospitality and multi-dwelling units.`,
-                        `Supported maintenance of content in over 500 sites, while performing database administration.`,
-                        `Collaborated with other designer and developers for the implementation of a technical reference desk. `
-                    ]
-                }
-            ]
+            resume: {}
         }
     },
-    computed: {
-        slimUrl() {
-            return (`` + this.resumeBasicInfo.url).replace(`https://`, ``)
+    methods: {
+        slimUrl({ url }) {
+            return (`` + url).replace(`https://`, ``)
         }
     }
 }

@@ -3,7 +3,7 @@ module.exports = {
         public: `testsite.com:8080`,
         disableHostCheck: true,
         ...(process.env.SERVER
-            ? // Proxy API endpoints to the production base URL.
+            ? // Proxy API endpoints to the production base URL if necessary
               {
                   proxy: {
                       '/graphql': {

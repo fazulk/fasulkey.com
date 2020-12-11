@@ -1,7 +1,7 @@
 module.exports = {
     client: {
         service: {
-            name: `my-app`,
+            name: `fasulkey-api`,
             // URL to the GraphQL API
             url: `http://localhost:3000/graphql`
         },
