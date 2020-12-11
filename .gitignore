@@ -107,3 +107,5 @@ dist
 
 # Personal files
 jeff_personal/
+
+env.config.js
