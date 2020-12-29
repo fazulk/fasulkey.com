@@ -18,7 +18,42 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
 export default {
-    name: `home`
+    name: `home`,
+    apollo: {
+        resume: {
+            query: gql`
+                query Resume {
+                    resume {
+                        name
+                        languages
+                        github
+                        location
+                        objective
+                        email
+                        url
+                        affiliations {
+                            title
+                            subTitle
+                        }
+                        experience {
+                            title
+                            subTitle
+                            location
+                            startDate
+                            points
+                            endDate
+                        }
+                        education {
+                            title
+                            subTitle
+                            location
+                        }
+                    }
+                }
+            `
+        }
+    }
 }
 </script>

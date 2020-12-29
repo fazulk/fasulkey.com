@@ -13,6 +13,7 @@
         "@vue/cli-plugin-router": "~4.4.0",
         "@vue/cli-service": "~4.4.0",
         "apollo-boost": "^0.4.9",
+        "epic-spinners": "^1.1.0",
         "graphql": "^15.4.0",
         "sass": "^1.26.10",
         "sass-loader": "^9.0.2",

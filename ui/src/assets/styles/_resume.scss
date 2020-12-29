@@ -1,0 +1,93 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: orange;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container > .center-loader {
+    position: relative;
+    left: calc(48%);
+    top: calc(50% - 10px); /* 50% - 3/4 of icon height */
+}
+
+a {
+    color: black;
+}
+
+.footer {
+    padding-bottom: 100px;
+}
+
+.heading {
+    padding: 20px;
+    margin: auto;
+    background-color: orange;
+    font: 3em Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    text-align: left;
+}
+
+.content {
+    line-height: 1.5em;
+    padding-top: 25px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-family: Georgia, 'Times New Roman', serif;
+    text-align: left;
+}
+
+.sub-heading {
+    padding-top: 25px;
+    padding-left: 25px;
+    font: 1.4em Georgia, 'Times New Roman', serif;
+    text-align: left;
+}
+
+.top-padding {
+    padding-top: 15px;
+}
+
+.job-title {
+    font-size: 1.2em;
+}
+
+.stronger {
+    font-weight: bold;
+}
+
+.languages {
+    line-height: 1.5em;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-family: Georgia, 'Times New Roman', serif;
+    text-align: left;
+    ul {
+        list-style-type: none;
+        padding-left: 25px;
+    }
+}
+
+.contact {
+    margin: auto;
+    font: 1.2em Georgia, 'Times New Roman', serif;
+    text-align: left;
+    ul {
+        list-style-type: none;
+        padding-left: 25px;
+    }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
