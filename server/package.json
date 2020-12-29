@@ -20,9 +20,11 @@
         "@koa/cors": "^3.1.0",
         "apollo-server-koa": "^2.19.0",
         "graphql-tools": "^7.0.1",
-        "koa": "^2.13.0"
+        "koa": "^2.13.0",
+        "mongodb": "^3.6.3"
     },
     "devDependencies": {
+        "gh-pages": "^3.1.0",
         "nodemon": "^2.0.6"
     }
 }

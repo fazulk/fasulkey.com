@@ -1,7 +1,7 @@
 import Firestore from '@google-cloud/firestore'
-
+import { config } from '../../config.js'
 export const fasulkeyDb = () => {
-    return process.env.NODE_ENV === `development`
+    return config.NODE_ENV === `development`
         ? new Firestore({
               projectId: `fasulkey`,
               keyFilename: `../fasulkey-fire-store.json`
