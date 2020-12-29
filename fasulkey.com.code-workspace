@@ -1,19 +1,13 @@
 {
-	"folders": [
-		{
-			"path": "server"
-		},
-		{
-			"path": "ui"
-		}
-	],
-	"settings": {
-		"conventionalCommits.scopes": [
-			"oracle dbs",
-			"user mgr",
-			"service ui",
-			"ui",
-			"server"
-		]
-	}
+    "folders": [
+        {
+            "path": "server"
+        },
+        {
+            "path": "ui"
+        }
+    ],
+    "settings": {
+        "conventionalCommits.scopes": ["ui", "server"]
+    }
 }

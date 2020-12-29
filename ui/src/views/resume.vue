@@ -33,6 +33,14 @@
                                 slimUrl({ url: resume.github })
                             }}</a>
                         </li>
+                        <br />
+                        <li>
+                            <a
+                                href="/assets/docs/fasulkey-resume.pdf"
+                                target="_blank"
+                                >download pdf</a
+                            >
+                        </li>
                     </ul>
                 </div>
                 <div class="sub-heading">Objective:</div>
