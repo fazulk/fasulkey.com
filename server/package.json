@@ -19,13 +19,10 @@
         "@google-cloud/firestore": "^4.8.1",
         "@koa/cors": "^3.1.0",
         "apollo-server-koa": "^2.19.0",
-        "dotenv-flow": "^3.2.0",
         "graphql-tools": "^7.0.1",
-        "koa": "^2.13.0",
-        "mongodb": "^3.6.3"
+        "koa": "^2.13.0"
     },
     "devDependencies": {
-        "gh-pages": "^3.1.0",
         "nodemon": "^2.0.6"
     }
 }
