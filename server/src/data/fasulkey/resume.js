@@ -15,7 +15,14 @@ export default function({ fasulkeyDb }) {
         d.forEach(doc => {
             results.push(doc.data())
         })
+
         return results
+            .map(e => {
+                const [month, year] = (`` + e.endDate).split(`-`)
+                e.sortDate = e.endDate ? new Date(year, month - 1) : new Date()
+                return e
+            })
+            .sort((a, b) => b.sortDate - a.sortDate)
     }
 
     async function setResume({ type } = {}) {
