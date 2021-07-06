@@ -1,0 +1,34 @@
+{
+    "configs": [
+        {
+            "path": "/css",
+            "fileExtension": "*",
+            "headers": [
+                {
+                    "key": "cache-control",
+                    "value": "private, max-age=31536000"
+                }
+            ]
+        },
+        {
+            "path": "/icons",
+            "fileExtension": "*",
+            "headers": [
+                {
+                    "key": "cache-control",
+                    "value": "private, max-age=31536000"
+                }
+            ]
+        },
+        {
+            "path": "/js",
+            "fileExtension": "*",
+            "headers": [
+                {
+                    "key": "cache-control",
+                    "value": "private, max-age=31536000"
+                }
+            ]
+        }
+    ]
+}

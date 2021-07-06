@@ -7,7 +7,7 @@ WORKDIR /app
 
 RUN npm install --production --ignore-scripts
 
-COPY ["*.config.js",".browserslistrc", "/app/"]
+COPY ["*.config.js",".browserslistrc", "headers.json", "/app/"]
 COPY __test__ /app/__test__
 COPY public /app/public
 COPY src /app/src
