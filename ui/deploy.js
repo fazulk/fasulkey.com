@@ -9,6 +9,7 @@ ghpages.publish(
             `src/**/*`,
             `public/**/*`,
             `Dockerfile`,
+            `headers.json`,
             `package*.json`,
             `*.config.js`,
             `.browserslistrc`
