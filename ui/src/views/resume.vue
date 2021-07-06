@@ -34,13 +34,13 @@
                             }}</a>
                         </li>
                         <br />
-                        <li>
+                        <!-- <li>
                             <a
                                 href="/assets/docs/fasulkey-resume.pdf"
                                 target="_blank"
                                 >download pdf</a
                             >
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <div class="sub-heading">Objective:</div>
