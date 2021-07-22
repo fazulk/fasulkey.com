@@ -86,19 +86,23 @@
                     </ul>
                 </div>
 
-                <div class="sub-heading">Affiliations:</div>
-                <div class="languages">
-                    <ul>
-                        <li
-                            v-for="(a, i) in resume.affiliations"
-                            :key="i"
-                            class="top-padding"
-                        >
-                            <span class="job-title stronger">{{ a.title }}</span
-                            ><br />
-                            <span class="stronger">{{ a.subTitle }}</span>
-                        </li>
-                    </ul>
+                <div v-if="resume.affiliations && resume.affiliations.length">
+                    <div class="sub-heading">Affiliations:</div>
+                    <div class="languages">
+                        <ul>
+                            <li
+                                v-for="(a, i) in resume.affiliations"
+                                :key="i"
+                                class="top-padding"
+                            >
+                                <span class="job-title stronger">{{
+                                    a.title
+                                }}</span
+                                ><br />
+                                <span class="stronger">{{ a.subTitle }}</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="footer"></div>
             </div>
