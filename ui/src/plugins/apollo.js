@@ -7,7 +7,7 @@ Vue.use(VueApollo)
 export const apolloClient = new ApolloClient({
     uri:
         process.env.NODE_ENV !== `production`
-            ? `http://testsite.com:3000/graphql`
+            ? `http://localhost:3000/graphql`
             : `https://api.fasulkey.com/graphql`
 })
 

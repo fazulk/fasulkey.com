@@ -43,8 +43,16 @@
                         </li>
                     </ul>
                 </div>
-                <div class="sub-heading">Objective:</div>
-                <div class="content">{{ resume.objective }}</div>
+                <!-- <div class="sub-heading">Objective:</div>
+                <div class="content">{{ resume.objective }}</div> -->
+                <div class="sub-heading">Languages, Software, Etc:</div>
+                <div class="languages">
+                    <ul>
+                        <li v-for="(l, i) in resume.languages" :key="i">
+                            {{ l }}
+                        </li>
+                    </ul>
+                </div>
                 <div class="sub-heading">Experience:</div>
                 <div
                     v-for="(e, i) in resume.experience"
@@ -62,14 +70,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="sub-heading">Languages, OS, and Programs:</div>
-                <div class="languages">
-                    <ul>
-                        <li v-for="(l, i) in resume.languages" :key="i">
-                            {{ l }}
-                        </li>
-                    </ul>
-                </div>
+
                 <div class="sub-heading">Education:</div>
                 <div class="languages">
                     <ul>

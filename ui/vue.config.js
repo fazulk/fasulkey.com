@@ -1,13 +1,12 @@
 module.exports = {
     devServer: {
-        public: `testsite.com:8080`,
         disableHostCheck: true,
         ...(process.env.SERVER
             ? // Proxy API endpoints to the production base URL if necessary
               {
                   proxy: {
                       '/graphql': {
-                          target: `http://testsite.com:3000`
+                          target: `http://localhost:3000`
                       }
                   }
               }
