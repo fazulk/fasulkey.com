@@ -33,7 +33,6 @@
                                 slimUrl({ url: resume.github })
                             }}</a>
                         </li>
-                        <br />
                         <li>
                             <a
                                 href="/assets/docs/fasulkey-resume.pdf"
@@ -43,8 +42,8 @@
                         </li>
                     </ul>
                 </div>
-                <!-- <div class="sub-heading">Objective:</div>
-                <div class="content">{{ resume.objective }}</div> -->
+                <div class="sub-heading">Objective:</div>
+                <div class="content">{{ resume.objective }}</div>
                 <div class="sub-heading">Languages, Software, Etc:</div>
                 <div class="languages">
                     <ul>
