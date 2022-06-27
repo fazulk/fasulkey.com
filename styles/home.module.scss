@@ -1,0 +1,44 @@
+.container {
+  width: 30vw;
+  max-width: 300px;
+  min-width: 200px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.link {
+  margin-right: 5px;
+  margin-left: 5px;
+  display: inline-block;
+  position: relative;
+  color: orange;
+  cursor: pointer;
+}
+
+.link:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: orange;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+.nav {
+  font-family: Georgia, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
