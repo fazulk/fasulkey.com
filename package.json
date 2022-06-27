@@ -1,23 +1,22 @@
 {
-  
-    "name": "fasulkey",
-    "version": "1.0.0",
-    "description": "UI / Server you name it",
-    "homepage": "https://github.com/fazulk/fasulkey#readme",
-    "bugs": {
-        "url": "https://github.com/fazulk/fasulkey/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fazulk/fasulkey.git"
-    },
-    "license": "ISC",
-    "author": "Jeff Fasulkey",
+  "name": "fasulkey",
+  "version": "1.0.0",
+  "description": "UI / Server you name it",
+  "homepage": "https://github.com/fazulk/fasulkey#readme",
+  "bugs": {
+    "url": "https://github.com/fazulk/fasulkey/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fazulk/fasulkey.git"
+  },
+  "license": "ISC",
+  "author": "Jeff Fasulkey",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
   },
   "dependencies": {
     "mongodb": "^4.7.0",
