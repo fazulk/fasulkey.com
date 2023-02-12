@@ -5,17 +5,25 @@ import Script from 'next/script'
 
 import Style from '../styles/home.module.scss'
 import cabin from '../public/img/cabin2.gif'
+import { Partytown } from '@builder.io/partytown/react'
 function Home() {
   return (
     <>
       <Head>
         <title>Jeff Fasulkey</title>
       </Head>
+      <Partytown debug={true} forward={['dataLayer.push']} />
+
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=UA-138257902-1"
         strategy="afterInteractive"
+        type="text/partytown"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        type="text/partytown"
+      >
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
