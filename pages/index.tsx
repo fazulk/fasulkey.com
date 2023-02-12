@@ -19,7 +19,7 @@ function Home() {
         strategy="afterInteractive"
         type="text/partytown"
       />
-      <Script
+      {/* <Script
         id="google-analytics"
         strategy="afterInteractive"
         type="text/partytown"
@@ -31,7 +31,7 @@ function Home() {
 
           gtag('config', 'UA-138257902-1');
         `}
-      </Script>
+      </Script> */}
       <div>
         <div className={Style.container}>
           <Image alt="Cabin" src={cabin} layout="responsive" />
