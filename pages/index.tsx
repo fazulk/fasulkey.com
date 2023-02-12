@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Script from 'next/script'
 
 import Style from '../styles/home.module.scss'
-import cabin from '../public/img/cabin.gif'
+import cabin from '../public/img/cabin2.gif'
 function Home() {
   return (
     <>
