@@ -17,7 +17,8 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "partytown": "partytown copylib public/~partytown"
+    "partytown": "partytown copylib public/~partytown",
+    "release": "bumpp"
   },
   "dependencies": {
     "@builder.io/partytown": "^0.7.5",
@@ -33,6 +34,7 @@
     "@types/react-dom": "18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
+    "bumpp": "^8.2.1",
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "^8.5.0",
