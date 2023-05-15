@@ -18,7 +18,7 @@
     "lint": "next lint",
     "start": "next start",
     "partytown": "partytown copylib public/~partytown",
-    "release": "bumpp --no-push"
+    "release": "bumpp"
   },
   "dependencies": {
     "@builder.io/partytown": "^0.7.5",
