@@ -50,7 +50,7 @@ function Home({
           </li>
         </ul>
       </div>
-      <div className={Style['sub-heading']}>Objective:</div>
+      <div className={Style['sub-heading']}>Summary:</div>
       <div className={Style.content}>{objective}</div>
       <div className={Style['sub-heading']}>Languages, Software, Etc:</div>
       <div className={Style.languages}>
