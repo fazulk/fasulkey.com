@@ -1,6 +1,6 @@
 {
   "name": "fasulkey",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "UI / Server you name it",
   "homepage": "https://github.com/fazulk/fasulkey#readme",
   "bugs": {
@@ -18,7 +18,7 @@
     "lint": "next lint",
     "start": "next start",
     "partytown": "partytown copylib public/~partytown",
-    "release": "git push && bumpp"
+    "release": "git push -u origin $(git symbolic-ref --short HEAD) && bumpp"
   },
   "dependencies": {
     "@builder.io/partytown": "^0.7.5",
