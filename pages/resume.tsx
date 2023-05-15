@@ -1,14 +1,14 @@
 import Head from 'next/head'
 
 import { resumeCol } from '../lib/data'
-import { Linear, Resume, Sorting } from '../types/resume'
+import type { Linear, Resume, Sorting } from '../types/resume'
 import Style from '../styles/resume.module.scss'
 
 function slimUrl(url: string) {
-  return (`` + url).replace(`https://`, ``)
+  return (`${url}`).replace('https://', '')
 }
 
-const Home = ({
+function Home({
   location,
   name,
   email,
@@ -18,7 +18,7 @@ const Home = ({
   languages,
   education,
   experience,
-}: Resume) => {
+}: Resume) {
   return (
     <div className={Style.resume}>
       <Head>
@@ -32,7 +32,7 @@ const Home = ({
           <li>{location}</li>
           <br />
           <li>
-            <a href={'mailto:' + email}>{email}</a>
+            <a href={`mailto:${email}`}>{email}</a>
           </li>
           <li>
             <a href={url}>{slimUrl(url)}</a>
@@ -63,11 +63,11 @@ const Home = ({
             {e.title}
           </span>
           <br />
-          {e.location +
-            ' ' +
-            e.startDate +
-            '-' +
-            (e.endDate ? e.endDate : 'Present')}
+          {`${e.location
+            } ${
+            e.startDate
+            }-${
+            e.endDate ? e.endDate : 'Present'}`}
           <br />
           <span className="stronger">{e.subTitle}</span>
           <ul>
@@ -103,7 +103,7 @@ export async function getStaticProps() {
   const education = await resumeCol.getResume({ type: 'education' })
   const experience = (await resumeCol.getResume({ type: 'experience' }))
     .map((e: Sorting) => {
-      const [month, year] = (`` + e.endDate).split(`-`)
+      const [month, year] = (`${e.endDate}`).split('-')
       e.sortDate = e.endDate
         ? new Date(Number(year), Number(month) - 1)
         : new Date()

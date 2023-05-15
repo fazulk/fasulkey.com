@@ -1,18 +1,15 @@
+import type { Db } from 'mongodb'
 import { MongoClient } from 'mongodb'
-
-// const options = {
-//   useNewUrlParser: true,
-//   useCreateIndex: true,
-//   useUnifiedTopology: true,
-// }
 
 const mongoUri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PW}@${process.env.MONGO_DOMAIN}`
 
 const client = new MongoClient(mongoUri)
 
-export const makeDb = async (dbName: string) => {
+export async function makeDb(dbName: string): Promise<Db> {
   await client.connect()
   return client.db(dbName)
 }
 
-export const fasulkeyDb = () => makeDb(`fasulkey`)
+export function fasulkeyDb() {
+  return makeDb('fasulkey')
+}
