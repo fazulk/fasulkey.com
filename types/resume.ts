@@ -19,7 +19,3 @@ export interface Linear {
   endDate: Date
   points: [string]
 }
-
-export interface Sorting extends Linear {
-  sortDate: Date | null
-}

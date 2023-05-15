@@ -1,8 +1,12 @@
 import Head from 'next/head'
 
 import { resumeCol } from '../lib/data'
-import type { Linear, Resume, Sorting } from '../types/resume'
+import type { Linear, Resume } from '../types/resume'
 import Style from '../styles/resume.module.scss'
+
+interface Sorting extends Linear {
+  sortDate: Date | null
+}
 
 function slimUrl(url: string) {
   return (`${url}`).replace('https://', '')
@@ -102,15 +106,15 @@ export async function getStaticProps() {
   const base = await resumeCol.getResume({ type: 'non-linear' })
   const education = await resumeCol.getResume({ type: 'education' })
   const experience = (await resumeCol.getResume({ type: 'experience' }))
-    .map((e: Sorting) => {
+    .map((e) => {
       const [month, year] = (`${e.endDate}`).split('-')
       e.sortDate = e.endDate
         ? new Date(Number(year), Number(month) - 1)
         : new Date()
-      return e
+      return e as Sorting
     })
-    .sort((a: Sorting, b: Sorting) => (b.sortDate as any) - (a.sortDate as any))
-    .map((el: Sorting) => {
+    .sort((a, b) => (b.sortDate as any) - (a.sortDate as any))
+    .map((el) => {
       el.sortDate = null
       return el
     })
