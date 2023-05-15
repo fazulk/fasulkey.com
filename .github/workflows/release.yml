@@ -1,10 +1,10 @@
 name: Release
 
 on:
-  pull_request:
+  pull_request_target:
+    types: [ closed ]
     branches:
-      - master 
-
+      - main
 
 jobs:
   release:
@@ -13,8 +13,17 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-    
       
+      - name: Check if PR was merged
+        id: check
+        run: echo "::set-output name=merged::${{ github.event.pull_request.merged }}"
+    
+      - name: Stop if not merged
+        if: steps.check.outputs.merged != 'true'
+        run: |
+          echo "PR was closed without merge. Stop running."
+          exit 1
+        
       - name: Check for Tag
         run: |
           # Fetch all tags from the remote
