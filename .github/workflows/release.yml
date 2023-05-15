@@ -1,19 +1,36 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - 'v*'
+  pull_request:
+    branches:
+      - main
 
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+    
+      
+      - name: Check for Tag
+        run: |
+          # Fetch all tags from the remote
+          git fetch --tags
+
+          # Get the commit SHA for the latest commit in the PR
+          LATEST_COMMIT_SHA=$(git rev-parse HEAD)
+
+          # Get the tag associated with the latest commit
+          TAG=$(git tag --contains $LATEST_COMMIT_SHA)
+
+          if [ -z "$TAG" ]; then
+            echo "The latest commit must be tagged"
+            exit 1
+          fi
+  
 
       - name: Set node
         uses: actions/setup-node@v3
