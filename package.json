@@ -1,6 +1,6 @@
 {
   "name": "fasulkey",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "UI / Server you name it",
   "homepage": "https://github.com/fazulk/fasulkey#readme",
   "bugs": {
@@ -18,7 +18,7 @@
     "lint": "next lint",
     "start": "next start",
     "partytown": "partytown copylib public/~partytown",
-    "release": "bumpp"
+    "release": "bumpp --no-push"
   },
   "dependencies": {
     "@builder.io/partytown": "^0.7.5",
