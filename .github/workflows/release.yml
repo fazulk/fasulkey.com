@@ -9,22 +9,14 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      
-      - name: Check if PR was merged
-        id: check
-        run: echo "::set-output name=merged::${{ github.event.pull_request.merged }}"
-    
-      - name: Stop if not merged
-        if: steps.check.outputs.merged != 'true'
-        run: |
-          echo "PR was closed without merge. Stop running."
-          exit 1
         
       - name: Check for Tag
+        id: tag_check
         run: |
           # Fetch all tags from the remote
           git fetch --tags
@@ -35,19 +27,18 @@ jobs:
           # Get the tag associated with the latest commit
           TAG=$(git tag --contains $LATEST_COMMIT_SHA)
 
-          if [ -z "$TAG" ]; then
-            echo "The latest commit must be tagged"
-            exit 1
-          fi
-  
-
+          # Set an output variable with the tag
+          echo "::set-output name=tag::$TAG"
+    
       - name: Set node
         uses: actions/setup-node@v3
+        if: steps.tag_check.outputs.tag != ''
         with:
           node-version: 18
           cache: yarn
 
       - run: npx changelogithub
+        if: steps.tag_check.outputs.tag != ''
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
