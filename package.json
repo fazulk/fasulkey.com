@@ -2,16 +2,16 @@
   "name": "fasulkey",
   "version": "1.0.13",
   "description": "UI / Server you name it",
+  "author": "Jeff Fasulkey",
+  "license": "ISC",
   "homepage": "https://github.com/fazulk/fasulkey#readme",
-  "bugs": {
-    "url": "https://github.com/fazulk/fasulkey/issues"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fazulk/fasulkey.git"
   },
-  "license": "ISC",
-  "author": "Jeff Fasulkey",
+  "bugs": {
+    "url": "https://github.com/fazulk/fasulkey/issues"
+  },
   "scripts": {
     "build": "npm run partytown && next build",
     "dev": "next dev",
@@ -29,17 +29,13 @@
     "sass": "^1.53.0"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "0.38.4",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
-    "@typescript-eslint/eslint-plugin": "^5.29.0",
-    "@typescript-eslint/parser": "^5.29.0",
     "bumpp": "^8.2.1",
-    "eslint": "8.18.0",
+    "eslint": "^8.40.0",
     "eslint-config-next": "12.1.6",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.7.1",
-    "typescript": "4.7.4"
+    "typescript": "^5.0.0"
   }
 }

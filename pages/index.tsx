@@ -3,9 +3,10 @@ import Image from 'next/image'
 import Head from 'next/head'
 import Script from 'next/script'
 
+import { Partytown } from '@builder.io/partytown/react'
 import Style from '../styles/home.module.scss'
 import cabin from '../public/img/cabin2.gif'
-import { Partytown } from '@builder.io/partytown/react'
+
 function Home() {
   return (
     <>
