@@ -1,6 +1,10 @@
 name: Release
 
 on:
+  pull_request:
+    types: [ closed ]
+    branches:
+      - 'release/*'
   pull_request_target:
     types: [ closed ]
     branches:
