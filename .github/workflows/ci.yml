@@ -6,14 +6,24 @@ on:
         - 'release/*'
 
 jobs:
-  unit-tests:
+  cancel:
     runs-on: ubuntu-latest
-    if: "!startsWith(github.ref_name, 'release/')"
+    steps:
+      - name: Cancel Workflow
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+  unit-tests:
+    needs: cancel
+    runs-on: ubuntu-latest
+   
 
     steps:
     - uses: actions/checkout@v2
+
 
     - name: Run tests
       run: |
         echo "Running tests..."
         # Your test commands go here
+    
