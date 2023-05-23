@@ -10,7 +10,7 @@ git checkout main
 git pull origin main
 
 # Get the current date/time in ISO 8601 format, and remove colons (:) and hyphens (-) as they are not valid in git branch names
-TIMESTAMP=$(date -u +"%Y%m%dT%H%M%S")
+TIMESTAMP=$(date -u +"%Y%m%d")
 
 # Create a new branch with the timestamp in the name
 git checkout -b release/$TIMESTAMP
