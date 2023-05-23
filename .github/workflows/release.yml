@@ -22,21 +22,24 @@ jobs:
         run: |
           # Fetch all tags from the remote
           git fetch --tags
-
-          # Get the commit SHA for the latest commit in the PR
-          LATEST_COMMIT_SHA=$(git rev-parse HEAD)
-
-          # Get the number of commits in the PR
-          COMMIT_COUNT=$(git rev-list --count HEAD ^${{ github.event.pull_request.base.sha }})
-
-          # Get the tag associated with the latest commit
-          TAG=$(git tag --contains $LATEST_COMMIT_SHA)
-
-          if [ "$COMMIT_COUNT" -ne "1" ]; then
-            echo "PR must contain exactly one commit"
-            echo "::set-output name=proceed::false"
-          elif [ -z "$TAG" ]; then
-            echo "The commit must be tagged"
+      
+          # Get the list of all commits in the PR
+          COMMIT_LIST=$(git rev-list HEAD ^${{ github.event.pull_request.base.sha }})
+      
+          # Variable to track if a tag was found
+          TAG_FOUND="false"
+      
+          # Loop through each commit to check for a tag
+          for COMMIT in $COMMIT_LIST; do
+            TAG=$(git tag --contains $COMMIT)
+            if [ ! -z "$TAG" ]; then
+              TAG_FOUND="true"
+              break
+            fi
+          done
+      
+          if [ "$TAG_FOUND" == "false" ]; then
+            echo "None of the commits are tagged"
             echo "::set-output name=proceed::false"
           else
             echo "::set-output name=proceed::true"
@@ -51,7 +54,9 @@ jobs:
 
       - name: Run changelogithub
         if: steps.check.outputs.proceed == 'true'
-        run: npx changelogithub
+        run: |
+          LAST_TAG=$(git describe --tags --abbrev=0)
+          npx changelogithub --to $LAST_TAG
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     
