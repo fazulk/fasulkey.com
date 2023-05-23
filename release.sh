@@ -17,4 +17,4 @@ git checkout -b release/$TIMESTAMP
 
 git push -u origin release/$TIMESTAMP
 # Run npm package bump
-bumpp
+bumpp -c "release: v" 
