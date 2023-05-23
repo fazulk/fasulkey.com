@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Fetch the latest changes from origin
-git fetch origin
+git fetch origin main
 
 # Checkout to the main branch
 git checkout main
@@ -17,4 +17,4 @@ git checkout -b release/$TIMESTAMP
 
 git push -u origin release/$TIMESTAMP
 # Run npm package bump
-npm bumpp
+bumpp
