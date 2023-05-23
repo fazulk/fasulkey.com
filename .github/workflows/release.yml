@@ -54,7 +54,9 @@ jobs:
 
       - name: Run changelogithub
         if: steps.check.outputs.proceed == 'true'
-        run: npx changelogithub
+        run: |
+          LAST_TAG=$(git describe --tags --abbrev=0)
+          npx changelogithub --to $LAST_TAG
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     
