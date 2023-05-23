@@ -7,14 +7,9 @@ on:
 
 jobs:
   cancel:
+    if: ${{ !startsWith(github.event.pull_request.head.ref, 'release/') }}
     runs-on: ubuntu-latest
     steps:
-      - name: Cancel Workflow
-        uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
-   
-
       - uses: actions/checkout@v2
 
 
