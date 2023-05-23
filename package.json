@@ -18,7 +18,7 @@
     "lint": "next lint",
     "start": "next start",
     "partytown": "partytown copylib public/~partytown",
-    "release": "git push -u origin $(git symbolic-ref --short HEAD) && bumpp"
+    "release": "./release.sh"
   },
   "dependencies": {
     "@builder.io/partytown": "^0.7.5",
