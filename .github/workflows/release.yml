@@ -5,10 +5,10 @@ on:
     types: [ closed ]
     branches:
       - 'release/*'
-  pull_request_target:
-    types: [ closed ]
-    branches:
-      - main
+  # pull_request_target:
+  #   types: [ closed ]
+  #   branches:
+  #     - main
 
 jobs:
   release:
