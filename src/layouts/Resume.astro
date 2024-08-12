@@ -1,24 +1,25 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import ThemeToggle from '../components/ThemeToggle.astro';
-const {frontmatter} = Astro.props;
+import BaseHead from '../components/BaseHead.astro'
+import ThemeToggle from '../components/ThemeToggle.astro'
+
+const { frontmatter } = Astro.props;
 ---
 
 <html lang="en" class="dark:bg-neutral-800 dark:text-neutral-300">
-	<head>
-		<BaseHead title={frontmatter.title} description={frontmatter.description} />
-	</head>
-	<body class="bg-white text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
-		<div class="absolute top-4 right-4">
+<head>
+  <BaseHead title={frontmatter.title} description={frontmatter.description} />
+</head>
+<body class="bg-white text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
+	<div class="absolute top-4 right-4">
+	</div>
+	<main>
+		<div class="text-5xl px-7 py-6 bg-[orange] text-neutral-800 flex justify-between">
+		Jeff Fasulkey
+		<div>
+			<ThemeToggle />
 		</div>
-		<main>
-			<div class="text-5xl px-7 py-6 bg-[orange] text-neutral-800 flex justify-between">
-			Jeff Fasulkey
-			<div>
-				<ThemeToggle />
-			</div>
-			</div>
-			<slot />
-		</main>
-	</body>
+		</div>
+		<slot />
+	</main>
+</body>
 </html>

@@ -9,11 +9,12 @@ const description = "Jeff Fasulkey Dev Extroidinaire"
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <script async>
-  if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
+if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+}
+else {
+  document.documentElement.classList.remove('dark')
+}
 </script>
 
 <!-- Global Metadata -->
