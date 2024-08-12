@@ -1,0 +1,41 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+li {
+	@apply list-disc;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+	@apply text-neutral-700 bg-gray-100 dark:bg-neutral-800 dark:text-neutral-300;
+
+}
+h1, h2, h3, h4, h5, h6 {
+	@apply text-neutral-800 dark:text-neutral-300;
+}
+h1 {
+	font-size: 2rem;
+}
+h2 {
+	font-size: 1.8rem
+}
+h3 {
+	font-size: 1.6rem;
+}
+h4 {
+	font-size: 1.4rem;
+}
+h5 {
+	font-size: 1.2rem;
+}
+strong,
+b {
+	font-weight: 700;
+}
+a {
+	@apply text-neutral-800 dark:text-neutral-300;
+}
+a:hover {
+	@apply text-neutral-800/80 dark:text-neutral-300/80;
+}
