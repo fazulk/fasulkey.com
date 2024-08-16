@@ -18,6 +18,7 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "build-pdf": "pnpm run build && node ./utils/pdf-convert.js",
     "astro": "astro",
     "prepare": "husky"
   },
