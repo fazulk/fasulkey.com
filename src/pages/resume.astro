@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Resume.astro'
+import Personal from '../components/Personal.astro'
+import { Content as Res } from './_resume.mdx'
+---
+<Layout title="Jeff Who?" description="Jeff Fasulkey Dev Extraordinaire">
+    <div class="mt-5 px-7 text-xl">
+        <Personal />
+    </div>
+    <Res>
+</Layout>

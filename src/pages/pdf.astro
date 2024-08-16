@@ -1,0 +1,21 @@
+---
+import '../styles/pdf.css'
+import Personal from '../components/Personal.astro'
+import { Content as Res } from './_resume.mdx'
+---
+
+<html lang="en" class="dark:bg-neutral-800 dark:text-neutral-300">
+    <body
+      class="bg-white text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300"
+    >
+        <div class="px-7">
+        <div class="text-2xl">
+            Jeff Fasulkey
+        </div>
+        <div class="text-sm">
+        <Personal isPdf />
+        </div>
+        </div>
+        <Res />
+    </body>
+</html>

@@ -1,10 +1,10 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
+import '../styles/web.css'
 
-const title = "Jeff Who?"
-const description = "Jeff Fasulkey Dev Extroidinaire"
+const title = 'Jeff Who?'
+const description = 'Jeff Fasulkey Dev Extroidinaire'
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -25,9 +25,9 @@ else {
 
 
 <!-- Font preloads -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -50,6 +50,4 @@ else {
 <meta property="twitter:description" content={description} />
 
 <!-- Google Analytics -->
-<script src="https://www.googletagmanager.com/gtag/js?id=UA-138257902-1"/></script>
-
-
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-138257902-1"></script>

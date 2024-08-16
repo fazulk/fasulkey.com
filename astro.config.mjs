@@ -7,4 +7,7 @@ export default defineConfig({
   site: 'https://fasulkey.com',
   integrations: [mdx(), tailwind()],
   prefetch: true,
+  build: {
+    inlineStylesheets: 'always',
+  },
 })

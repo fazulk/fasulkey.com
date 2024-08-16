@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && node ./utils/pdf-convert.js",
     "preview": "astro preview",
     "astro": "astro",
     "release": "./release.sh"
@@ -35,6 +35,7 @@
     "@antfu/eslint-config": "^2.25.0",
     "eslint": "^9.8.0",
     "eslint-plugin-astro": "^1.2.3",
+    "puppeteer": "^23.1.0",
     "unplugin-icons": "^0.19.2"
   }
 }
