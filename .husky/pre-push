@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+astro check && astro build && node ./utils/pdf-convert.js || exit 1
