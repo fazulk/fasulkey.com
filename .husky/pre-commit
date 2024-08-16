@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm run build-pdf && git add public/docs/resume.pdf
+pnpm run build-pdf && git add public/docs/jeff.fasulkey-resume.pdf

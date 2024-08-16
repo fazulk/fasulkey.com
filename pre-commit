@@ -14,6 +14,6 @@ export NVM_DIR="$HOME/.nvm"
 npx astro check && npx astro build && node ./utils/pdf-convert.js
 
 # Stage the newly generated PDF file
-git add public/docs/resume.pdf
+git add public/docs/jeff.fasulkey-resume.pdf
 
 git commit --amend --no-edit --no-verify

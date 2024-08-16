@@ -22,5 +22,5 @@ async function convertHtmlToPdf(htmlFilePath, outputPdfPath) {
   await browser.close()
 }
 
-// convertHtmlToPdf('dist/pdf/index.html', 'dist/docs/resume.pdf')
-convertHtmlToPdf('dist/pdf/index.html', 'public/docs/resume.pdf')
+// convertHtmlToPdf('dist/pdf/index.html', 'dist/docs/jeff.fasulkey-resume.pdf')
+convertHtmlToPdf('dist/pdf/index.html', 'public/docs/jeff.fasulkey-resume.pdf')
