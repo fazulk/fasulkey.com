@@ -1,15 +1,8 @@
 import fs from 'node:fs'
-// import puppeteer from 'puppeteer'
-import chromium from '@sparticuz/chromium'
-import puppeteer from 'puppeteer-core'
+import puppeteer from 'puppeteer'
 
 async function convertHtmlToPdf(htmlFilePath, outputPdfPath) {
-//   const browser = await puppeteer.launch()
-  const browser = await puppeteer.launch({
-    args: chromium.args,
-    executablePath: await chromium.executablePath,
-    headless: chromium.headless,
-  })
+  const browser = await puppeteer.launch()
   const page = await browser.newPage()
 
   // Load the HTML file
@@ -29,5 +22,5 @@ async function convertHtmlToPdf(htmlFilePath, outputPdfPath) {
   await browser.close()
 }
 
-convertHtmlToPdf('dist/pdf/index.html', 'dist/docs/resume.pdf')
-// convertHtmlToPdf('dist/pdf/index.html', 'public/docs/resume.pdf')
+// convertHtmlToPdf('dist/pdf/index.html', 'dist/docs/resume.pdf')
+convertHtmlToPdf('dist/pdf/index.html', 'public/docs/resume.pdf')
