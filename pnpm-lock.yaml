@@ -23,9 +23,6 @@ dependencies:
   astro:
     specifier: ^4.13.3
     version: 4.13.3(typescript@5.5.4)
-  husky:
-    specifier: ^9.1.4
-    version: 9.1.4
   tailwindcss:
     specifier: ^3.4.9
     version: 3.4.9
@@ -43,6 +40,9 @@ devDependencies:
   eslint-plugin-astro:
     specifier: ^1.2.3
     version: 1.2.3(eslint@9.9.0)(typescript@5.5.4)
+  husky:
+    specifier: ^8.0.3
+    version: 8.0.3
   puppeteer:
     specifier: ^23.1.0
     version: 23.1.0(typescript@5.5.4)
@@ -3791,11 +3791,11 @@ packages:
     engines: {node: '>=16.17.0'}
     dev: false
 
-  /husky@9.1.4:
-    resolution: {integrity: sha512-bho94YyReb4JV7LYWRWxZ/xr6TtOTt8cMfmQ39MQYJ7f/YE268s3GdghGwi+y4zAeqewE5zYLvuhV0M0ijsDEA==}
-    engines: {node: '>=18'}
+  /husky@8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
     hasBin: true
-    dev: false
+    dev: true
 
   /ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
