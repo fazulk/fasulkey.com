@@ -18,8 +18,19 @@ function handleToggleClick() {
   localStorage.setItem('theme', isDark ? 'dark' : 'light')
 }
 
-const themeToggle = document.getElementById('themeToggle')
-if (themeToggle) {
-  themeToggle.addEventListener('click', handleToggleClick)
+function attachThemeToggleListener() {
+  const themeToggle = document.getElementById('themeToggle')
+  if (themeToggle) {
+    // Remove any existing event listeners to prevent duplicates
+    themeToggle.removeEventListener('click', handleToggleClick)
+    // Add the event listener
+    themeToggle.addEventListener('click', handleToggleClick)
+  }
 }
+
+// Initial attachment
+attachThemeToggleListener()
+
+// Reattach after view transitions
+document.addEventListener('astro:after-swap', attachThemeToggleListener)
 </script>

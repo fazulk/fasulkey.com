@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/web.css'
@@ -9,12 +10,54 @@ const description = 'Jeff Fasulkey Dev Extroidinaire'
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <script async>
-if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark')
+function toggleTheme(dark) {
+  const css = document.createElement('style')
+
+  css.appendChild(
+    document.createTextNode(
+      `* {
+             -webkit-transition: none !important;
+             -moz-transition: none !important;
+             -o-transition: none !important;
+             -ms-transition: none !important;
+             transition: none !important;
+          }
+        `,
+    ),
+  )
+
+  document.head.appendChild(css)
+
+  if (dark) {
+    document.documentElement.classList.add('dark')
+  }
+  else {
+    document.documentElement.classList.remove('dark')
+  }
+
+  // eslint-disable-next-line ts/no-unused-expressions
+  window.getComputedStyle(css).opacity
+  document.head.removeChild(css)
 }
-else {
-  document.documentElement.classList.remove('dark')
+
+function preloadTheme() {
+  const userTheme = localStorage.theme
+
+  if (userTheme === 'light' || userTheme === 'dark') {
+    toggleTheme(userTheme === 'dark')
+  }
+  else {
+    toggleTheme(window.matchMedia('(prefers-color-scheme: dark)').matches)
+  }
 }
+
+// Initial theme load
+preloadTheme()
+
+// Handle theme persistence during view transitions
+document.addEventListener('astro:after-swap', () => {
+  preloadTheme()
+})
 </script>
 
 <!-- Global Metadata -->
@@ -51,3 +94,5 @@ else {
 
 <!-- Google Analytics -->
 <script src="https://www.googletagmanager.com/gtag/js?id=UA-138257902-1"></script>
+
+<ViewTransitions />

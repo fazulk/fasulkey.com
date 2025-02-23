@@ -1,0 +1,22 @@
+---
+import Head from '@components/BaseHead.astro'
+import { SITE } from '@consts'
+
+type Props = {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="dark:bg-neutral-800 dark:text-neutral-300">
+  <head>
+    <Head title={`${title} | ${SITE.TITLE}`} description={description} />
+  </head>
+  <body class="bg-white text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

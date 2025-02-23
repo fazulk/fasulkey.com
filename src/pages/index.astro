@@ -1,12 +1,8 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
+import Layout from '@/layouts/Layout.astro'
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead />
-  </head>
+<Layout title="Home" description="Home">
   <main class="min-h-screen flex flex-col justify-center items-center">
     <img alt="Cabin" src="/cabin2.gif" class="mx-auto p-2" />
     <div class="font-georgia text-center antialiased">
@@ -24,4 +20,4 @@ import BaseHead from '../components/BaseHead.astro'
       </a>
     </div>
   </main>
-</html>
+</Layout>

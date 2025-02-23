@@ -3,6 +3,30 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+
+@view-transition {
+  navigation: auto;
+}
+
+/* Customize the outgoing page */
+::view-transition-old(root) {
+  animation: fade-out 0.5s ease-in-out;
+}
+
+/* Customize the incoming page */
+::view-transition-new(root) {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 li {
 	@apply list-disc;
 }
@@ -39,3 +63,4 @@ a {
 a:hover {
 	@apply text-neutral-800/80 dark:text-neutral-300/80;
 }
+
