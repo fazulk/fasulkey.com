@@ -1,5 +1,6 @@
 ---
 import Head from '@components/BaseHead.astro'
+import ThemeToggle from '@components/ThemeToggle.astro'
 import { SITE } from '@consts'
 
 type Props = {
@@ -14,7 +15,8 @@ const { title, description } = Astro.props;
   <head>
     <Head title={`${title} | ${SITE.TITLE}`} description={description} />
   </head>
-  <body class="bg-white text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
+  <body class="bg-white  text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
+    <ThemeToggle />
     <main>
       <slot />
     </main>
