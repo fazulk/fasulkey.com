@@ -26,6 +26,7 @@ function toggleTheme(dark) {
     ),
   )
 
+  // Temporarily disable transitions so theme changes do not flash during load or swaps.
   document.head.appendChild(css)
 
   if (dark) {
